@@ -8,7 +8,7 @@ def read_gtfs_table(path_file, stops=False, shapes=False):
     :param path_file str: the path of the file
     :param stops bool: if the file is stops, the variable takes the value True. When reading the stops file, we convert the values of the fields stop_lat and stop_lon to floats.
     :param shapes bool: if the file is shapes, the variable takes the value True. When reading the shapes file, we convert the values of the fields stop_lat, stop_lon and shape_dist_traveledto floats.
-    :return:
+    :return: this function returns a list of dictionaries. The dictionaries correspond to rows from the table.
     """
     with open(path_file, 'r', encoding="utf-8-sig") as table:
         csv_reader = csv.DictReader(table)
@@ -35,7 +35,7 @@ def read_gtfs_table(path_file, stops=False, shapes=False):
 stops = read_gtfs_table('C:/Users/aetho/OneDrive - AETHON Engineering/Data/Δήμος Βάρης-Βούλας-Βουλιαγμένης/VVV_GTFS/stops.txt', stops=True)
 stop_times = read_gtfs_table('C:/Users/aetho/OneDrive - AETHON Engineering/Data/Δήμος Βάρης-Βούλας-Βουλιαγμένης/VVV_GTFS/stop_times.txt')
 shapes = read_gtfs_table('C:/Users/aetho/OneDrive - AETHON Engineering/Data/Δήμος Βάρης-Βούλας-Βουλιαγμένης/VVV_GTFS/shapes.txt', shapes=True)
-trips = read_gtfs_table('C:/Users/aetho/OneDrive - AETHON Engineering/Data/Δήμος Βάρης-Βούλας-Βουλιαγμένης/VVV_GTFS/trips.txt')
+trips = read_gtfs_table('C:/Users/aetho/OneDrive - AETHON Engineering/Data/Δήμος Βάρης-Βούλας-Βουλιαγμένης/VVV_GTFS/tripsv.txt')
 
 # first we find the first value of stop_sequence of each trip from stop_times
 first_stop_sequence_per_trip = []
